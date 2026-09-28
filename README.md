@@ -1,60 +1,64 @@
-# Estação Pizzaria
+# Estação Pizzaria — reformulação de 28/09/2026
 
-Site responsivo em HTML, CSS e JavaScript, pronto para um repositório GitHub. Não precisa instalar programas, usar npm ou compilar arquivos.
+## Atualizar a versão já publicada
+Substitua o conteúdo anterior pelos arquivos deste pacote, incluindo **refinement.css**, **styles.css**, **script.js**, **index.html** e **assets/**. Não envie apenas o HTML. A versão contém busca no cardápio, área do app redesenhada e nenhuma seta/emoji decorativo.
 
-## Abrir no computador
+Depois do envio, aguarde a atualização do GitHub Pages e reabra o endereço do site.
 
-Extraia o ZIP e abra `index.html` no navegador. Mantenha `styles.css`, `script.js` e a pasta `assets` junto dele.
+
+Site estático em HTML, CSS e JavaScript, com a identidade amarela e marrom da Estação. Pronto para enviar ao GitHub. Não exige npm, compilação, chave de API ou banco de dados.
+
+## Visualizar
+Extraia o ZIP e abra `index.html` no navegador. Mantenha os arquivos e a pasta `assets` juntos. `preview-desktop.png` mostra a primeira tela da versão entregue.
 
 ## Publicar no GitHub Pages
+1. Crie um repositório no GitHub (público caso use o plano gratuito).
+2. Extraia o ZIP e envie seu conteúdo por **Add file → Upload files**. Não envie o ZIP: o `index.html` deve ficar diretamente na raiz do repositório.
+3. Inclua a pasta `assets` inteira, com as fotos e os QR codes.
+4. Salve o envio na branch `main`.
+5. Em **Settings → Pages → Build and deployment**, escolha **Deploy from a branch**.
+6. Selecione **main** e **/(root)**. Clique em **Save**.
+7. Aguarde o GitHub exibir o link publicado.
 
-1. Crie um repositório no GitHub (público, caso use o GitHub Free).
-2. Extraia o ZIP. Envie **o conteúdo da pasta**, e não o ZIP, usando **Add file → Upload files**.
-3. Confira se `index.html` está na raiz do repositório, junto com `styles.css`, `script.js` e `assets/`. Não coloque tudo dentro de outra pasta.
-4. Salve o envio em um commit na branch `main`.
-5. Abra **Settings → Pages**.
-6. Em **Build and deployment → Source**, escolha **Deploy from a branch**.
-7. Selecione a branch `main`, a pasta **/(root)** e clique em **Save**.
-8. Aguarde a publicação. O endereço aparecerá na área Pages.
+O cardápio está incorporado no HTML. Nenhum botão de cardápio abre PDF ou Google Drive.
 
 Documentação oficial: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
 
-## O que está funcionando
+## Conteúdo incluído
+- Página inicial com fotografia do cardápio da Estação.
+- Cardápio completo na página: 201 itens em 14 categorias expansíveis, com descrições e preços.
+- Três pizzas em destaque, com descrições do cardápio.
+- Navegação entre categorias sem sair do site, incluindo opções doces, bebidas e porções.
+- Oferta confirmada pelo solicitante: BAIXE O APP – GANHE 20% DE DESCONTO.
+- App Android e iPhone/iPad: botões e um QR code para cada loja.
+- Fotografias das publicações enviadas, com links para o Instagram.
+- Endereço e botão de rota no Google Maps.
+- Menu para celular, botões fixos para app/pedido e aviso de privacidade.
+- Imagens locais e fontes do sistema.
 
-- Layout para celular, tablet e computador.
-- Menu de navegação no celular, com suporte a teclado e tecla Escape.
-- Botões para o delivery oficial na Wabiz.
-- Links para o Instagram fornecido.
-- Perguntas frequentes expansíveis.
-- Botão de pedido fixo no celular.
-- Imagens locais: não depende de imagens carregadas em sites de terceiros.
-- Fontes do sistema: sem dependência de Google Fonts.
-- Links de pedido e perguntas frequentes funcionam mesmo sem JavaScript.
+## QR codes
+`assets/qr-android.png` abre:
+https://play.google.com/store/apps/details?id=com.wabiz.delivery.estacaopizzaria
 
-## Como editar
+`assets/qr-iphone.png` abre:
+https://apps.apple.com/br/app/id1457245182
 
-- Textos e links: `index.html`.
-- Cores, fontes e espaçamento: `styles.css`. As cores principais estão nas variáveis `:root` no início.
-- Comportamento do menu: `script.js`.
-- Logo: `assets/logo.png`.
-- Foto principal: substitua `assets/pizza.jpg` por uma foto própria e ajuste o texto alternativo no HTML. Ao usar foto real da pizzaria, remova a legenda “Imagem ilustrativa”.
-- Ícone da aba: `assets/favicon.png`.
+Os QR codes já funcionam antes da publicação do site porque apontam diretamente para as lojas oficiais. Podem ser impressos mantendo a borda branca e o formato quadrado. Teste a leitura no tamanho final antes de imprimir em quantidade.
 
-## Escopo e informações
+## Editar depois
+- Textos, links e informações: `index.html`.
+- Estrutura visual básica: `styles.css`. A nova direção visual está em `refinement.css`, carregado depois.
+- Busca: código em `script.js`, sem envio de consultas para serviços externos.
+- Menu e aviso de privacidade: `script.js`.
+- Cardápio: edite os nomes, descrições e valores na seção `native-menu` de `index.html`. As categorias usam `details`, com itens em `menu-item`. Nas pizzas, mantenha os preços B e G alinhados aos tamanhos do cardápio.
+- Fotografias: arquivos em `assets`. As duas imagens do Instagram são prints; seu enquadramento fica nas regras `.photo-crop` no CSS. Fotografias originais podem ser utilizadas no lugar desses recortes.
+- Aplicativos: altere os links no HTML e gere novos QR codes se os endereços das lojas mudarem. Mudar o link do botão não altera o conteúdo do QR.
 
-Os pedidos são finalizados **na Wabiz**, em https://estacaopizzaria.wabiz.delivery/. Este pacote não implementa um carrinho próprio, pagamento, painel administrativo ou integração com a API da Wabiz. O Instagram configurado é https://www.instagram.com/estacaopizzaria/.
+## Escopo
+O site é a apresentação da Estação e direciona o pedido para a Wabiz. Não possui carrinho próprio, pagamentos, painel administrativo, reserva ou conexão com a API da Wabiz.
 
-A logo e as cores foram obtidas da página de delivery enviada. A foto principal é ilustrativa, de banco de imagens; não representa um produto real da Estação. Veja `CREDITOS.md`.
+Os botões de categoria abrem o cardápio dentro da própria página. Os botões de pedido abrem o delivery e não adicionam itens automaticamente ao carrinho. Os valores foram transcritos do cardápio fornecido: atualize-os sempre que houver mudança e confirme o preço final no canal de pedido.
 
-Não foram inventados preços, sabores, endereço, telefone, horários ou avaliações. O site encaminha essas consultas para os canais da pizzaria. Confira os links e a disponibilidade do delivery antes de divulgar.
+O desconto de 20% foi confirmado pelo solicitante e está anunciado no topo, no link do aplicativo e na seção de download. Não foram inventados cupom, validade, pedido mínimo ou restrição a primeira compra. As condições específicas devem estar disponíveis no app. Horários e telefone não foram presumidos.
 
-Não há analytics, cookies próprios ou formulário de coleta de dados. Ao abrir Wabiz e Instagram, passam a valer as condições desses serviços.
-
-## Estrutura
-
-- `index.html`: página completa.
-- `styles.css`: identidade visual e adaptação às telas.
-- `script.js`: menu e ano do rodapé.
-- `assets/`: logo, favicon e foto.
-- `README.md`: instruções.
-- `CREDITOS.md`: origem das imagens.
+Veja `CREDITOS.md` para origens das fotos e fontes de informação.
